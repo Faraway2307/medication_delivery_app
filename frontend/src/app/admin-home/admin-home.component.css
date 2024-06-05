@@ -1,0 +1,267 @@
+h4 {
+  color: #9b51e0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+}
+.top-section {
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+}
+
+.top-section-left {
+  width: 50%;
+}
+
+.top-section-right {
+  display: flex;
+  gap: 24px;
+  width: 50%;
+}
+
+.top-section-right-left {
+  width: 50%;
+}
+.top-section-right-right {
+  width: 50%;
+}
+
+.card-patient-order {
+  background-color: #edecfc;
+  padding: 48px;
+  border-radius: 24px;
+  display: flex;
+  height: 250px;
+}
+
+.card-total-paitients {
+  background-color: #edecfc;
+  padding: 24px;
+  border-radius: 24px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.card-create {
+  background-color: #edecfc;
+  padding: 24px;
+  border-radius: 24px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.card-create img {
+  width: 100px;
+  margin-bottom: 8px;
+}
+.left-side {
+  width: 70%;
+}
+
+.left-side h2 {
+  font-size: 24px;
+  font-family: "Roboto", sans-serif;
+  text-align: left;
+  width: 300px;
+}
+
+.left-side p {
+  font-size: 32px;
+  font-family: "Roboto", sans-serif;
+}
+
+.right-side img {
+  width: 200px;
+}
+
+.bottom-section {
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.inventory-container {
+  width: 50%;
+}
+
+.bottom-section-left {
+  display: flex;
+  gap: 24px;
+}
+
+.bottom-section-left-left {
+  width: 50%;
+}
+
+.bottom-section-left-right {
+  width: 50%;
+}
+
+.card-total-medicine {
+  background-color: #edecfc;
+  padding: 24px;
+  border-radius: 24px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.card-medicine-shortage {
+  background-color: #edecfc;
+  padding: 24px;
+  border-radius: 24px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.card-medicine-shortage img {
+  width: 25px;
+  margin-bottom: 8px;
+}
+
+/* container of paitent records */
+.bottom-section-right {
+  width: 50%;
+}
+
+.paitient-records-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.patient-record-content {
+  background-color: #edecfc;
+  border-radius: 24px;
+  padding: 24px;
+  min-height: 250px;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid #6548c3;
+  border-right: none;
+  padding: 8px;
+  border-radius: 16px 0 0 16px;
+  outline: none;
+  color: #6548c3;
+  font-size: 16px;
+}
+
+.searchButton {
+  width: 45px;
+  height: 45px;
+  border: none;
+  background: #6548c3;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 16px 16px 0;
+  cursor: pointer;
+}
+
+.card-container {
+  padding: 16px;
+  display: inline;
+}
+
+.patient-card {
+  display: flex;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 12px;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.no-results {
+  text-align: center;
+  color: #888;
+  font-size: 14px;
+  margin-top: 12px;
+}
+
+@media screen and (max-width: 1000px) {
+  .top-section {
+    flex-direction: column;
+  }
+  .top-section-left,
+  .top-section-right {
+    width: 100%;
+  }
+
+  .top-section-right {
+    margin-top: 24px;
+  }
+
+  .top-section-right-left,
+  .top-section-right-right {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .top-section-right {
+    flex-direction: column;
+  }
+
+  .bottom-section {
+    flex-direction: column;
+  }
+
+  .inventory-container,
+  .bottom-section-right {
+    width: 100%;
+  }
+
+  .bottom-section-right-left {
+    margin-bottom: 24px;
+  }
+
+  .card-patient-order {
+    background-color: #edecfc;
+    padding: 48px;
+    border-radius: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 200px;
+  }
+
+  .card-patient-order .left-side {
+    flex: 1;
+  }
+
+  .card-patient-order .right-side {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .card-patient-order .right-side img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+  }
+}

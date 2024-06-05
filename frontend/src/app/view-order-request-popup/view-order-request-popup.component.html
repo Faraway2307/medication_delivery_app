@@ -1,0 +1,25 @@
+<div class="view-order-request-popup">
+    <h2 class="popup-header">{{this.data.full_name}}'s Order
+      <span class="close-icon" (click)="close()">&times;</span>
+    </h2>
+
+    <div class="form-group">
+      <p>Medicine Name: {{medname}}</p>
+    </div>
+  
+    <div *ngIf="showRejectionForm" class="rejection-form">
+      <p class="reject-title">Provide Reason for Rejection</p>
+      <input type="text" [(ngModel)]="rejectionReason" required>
+      <div *ngIf="isRejectionReasonEmpty" class="error-message">Rejection reason is required.</div>
+      <button (click)="confirmRejection()">Confirm Rejection</button>
+    </div>
+  </div>
+  
+  <div class="actions">
+    <!-- need to do user access control here 
+      doctor's view: will see approve and reject button
+      admin/whoever packing meds: will see complete button -->
+    <button *ngIf="!showRejectionForm" (click)="complete()">Complete</button>
+    <button *ngIf="!showRejectionForm" class="rejectbtn" (click)="showRejectionForm = true">Reject</button>
+  </div>
+  

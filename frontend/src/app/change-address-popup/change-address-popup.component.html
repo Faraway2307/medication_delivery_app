@@ -1,0 +1,22 @@
+<div class="change-address-popup">
+    <div class="modal-header text-center d-block">
+        <h4 class="modal-title">Reset Address</h4>
+        <br>
+    </div>
+    <div class="modal-body text-center d-block">
+        <form class="address-form">
+            <mat-form-field class="address-full-width">
+                <mat-label>Address</mat-label>
+                <input type="text" matInput [formControl]="addressFormControl" [errorStateMatcher]="matcher"
+                    placeholder="Ex. 123 Main St">
+                <mat-hint>Errors appear instantly!</mat-hint>
+                <mat-error *ngIf="addressFormControl.hasError('required')">
+                    Address is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+        </form>
+    </div>
+    <div class="modal-footer text-center d-block">
+        <a (click)="update()"><button class="btn cta-button" id="button">Confirm</button></a>
+    </div>
+</div>

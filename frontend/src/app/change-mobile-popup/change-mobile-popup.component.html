@@ -1,0 +1,26 @@
+<div class="change-mobile-popup">
+    <div class="modal-header text-center d-block">
+      <h4 class="modal-title">Reset Mobile Number</h4>
+      <br>
+    </div>
+    <div class="modal-body text-center d-block">
+      <form class="mobile-form">
+        <mat-form-field class="mobile-full-width">
+          <mat-label>Mobile Number</mat-label>
+          <input type="tel" matInput [formControl]="mobileFormControl" [errorStateMatcher]="matcher">
+          <mat-error *ngIf="mobileFormControl.hasError('pattern') && !mobileFormControl.hasError('required')">
+            Please enter a valid mobile number
+          </mat-error>
+          <mat-error *ngIf="mobileFormControl.hasError('required')">
+            Mobile number is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </form>
+    </div>
+    <div class="modal-footer text-center d-block">
+      <a (click)="update()">
+        <button class="btn cta-button" id="button" [disabled]="!mobileFormControl.valid">Confirm</button>
+      </a>
+    </div>
+  </div>
+  

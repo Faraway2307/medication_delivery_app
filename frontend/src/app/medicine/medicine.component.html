@@ -1,0 +1,63 @@
+<div class="heading">
+  <h2>Medicine Name</h2>
+  <button (click)="isEditMode ? updateData() : toggleEditMode()">{{ isEditMode ? 'Save Changes' : 'Edit Medicine' }}</button>
+</div>
+
+<div class="top-section">
+  <div class="top-section-left">
+    <div class="card-medicine">
+      <div class="card-top">
+        <p>{{ inventory.medname }}</p>
+      </div>
+      <hr class="new4">
+      <div class="card-content">
+        <ng-container *ngIf="isEditMode; else viewModeContent1">
+          <textarea [(ngModel)]="inventory.medcode"></textarea>
+        </ng-container>
+        <ng-template #viewModeContent1>
+          <p>{{ inventory.medcode }}</p>
+        </ng-template>
+        <p>Medicine ID</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="top-section-right">
+    <div class="card-medicine">
+      <div class="card-top">
+        <p>Medicine</p>
+        <button class="send-request-button" (click)="openStockRequestDialog()">Send stock request >></button>
+      </div>
+      <hr class="new4">
+      <div class="card-content">
+        <ng-container *ngIf="isEditMode; else viewModeContent2">
+          <textarea [(ngModel)]="inventory.stock"></textarea>
+        </ng-container>
+        <ng-template #viewModeContent2>
+          <p>{{ inventory.stock }}</p>
+        </ng-template>
+        <p>Stock Left</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card-medicine">
+  <div class="card-top">
+    <p>How to use</p>
+  </div>
+  <hr class="new4">
+  <div class="card-how">
+    <ng-container *ngIf="isEditMode; else viewModeContent3">
+      <textarea [(ngModel)]="inventory.meddesc"></textarea>
+    </ng-container>
+    <ng-template #viewModeContent3>
+      <p>{{ inventory.meddesc }}</p>
+    </ng-template>
+  </div>
+</div>
+<br>
+
+
+<br>
+<button class="delBtn" (click)="deleteData()">Delete Medicine</button>

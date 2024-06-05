@@ -1,0 +1,119 @@
+<div class="top-section">
+  <div class="top-section-left">
+    <div class="card-patient-order">
+      <div class="left-side">
+        <h2>Patient's Order Request</h2>
+        <p>{{pendingOrders}}</p>
+      </div>
+      <div class="right-side">
+        <img src="../../assets/images/PatientOrderRequest.svg" alt="Image" />
+      </div>
+    </div>
+  </div>
+
+  <div class="top-section-right">
+    <div class="card-completed">
+      <div class="left-side">
+        <h2>Completed</h2>
+        <p>{{this.count}}</p>
+      </div>
+      <div class="right-side">
+        <img
+          src="../../assets/images/tick-circle-svgrepo-com.svg"
+          alt="Image"
+        />
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+<div class="table-container">
+  <h2>List of Order Request</h2>
+  <div class="order-row">
+    <!-- search box -->
+    <div class="search-row">
+      <input
+        type="text"
+        name="search"
+        class="form-control search-input"
+        placeholder="Search by Order Id, Patient, Order..."
+        [(ngModel)]="searchKeyword"
+        (ngModelChange)="onSearchChange($event)"
+      />
+    </div>
+
+    <!-- filter -->
+    <div class="show-row">
+      <select
+        class="form-control filter-input"
+        [(ngModel)]="showNo"
+        (change)="changeShowNo()"
+      >
+        <option value="5" selected="selected">Show 5</option>
+        <option value="10">Show 10</option>
+        <option value="15">Show 15</option>
+        <option value="20">Show 20</option>
+      </select>
+    </div>
+  </div>
+
+  <table class="table table-responsive table-hover">
+    <thead>
+      <tr class="myHead">
+        <th>Order ID</th>
+        <th>Patient</th>
+        <th>Order</th>
+        <th>Order date</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="hasSearchResults; else noResults">
+      <tr *ngFor="let data of filteredData">
+        <td>{{ data.orderid }}</td>
+        <td>{{ data.full_name }}</td>
+        <td>{{ data.meddesc }}</td>
+        <td>{{ data.startdate }}</td>
+        <td>
+          <!-- completed refers to final stage, doctor have approved and medicine have been packed by whoever in charge -->
+          <!-- pending refers to waiting for approval from doctor -->
+          <!-- approved refers to doctor have verfied , pending for packing  -->
+          <!-- rejected refers to doctor have rejected patient request -->
+          <div class="status-box" [ngClass]="{
+            'completed': data.status.toLowerCase() === 'completed',
+            'pending': data.status.toLowerCase() === 'pending',
+            'rejected': data.status.toLowerCase() === 'rejected',
+            'approved': data.status.toLowerCase() === 'approved',
+          }">
+            <span class="status-text">{{ data.status }}</span>
+          </div>
+          
+        </td>
+
+        <!-- "View All" Link/Button -->
+        <td>
+          <a class="viewBtn" id="viewAllBtn" *ngIf="data.status === 'Pending'" (click)="openDialog(data)" >View All</a>
+        </td>
+      </tr>
+    </tbody>
+    <ng-template #noResults>
+      <tr>
+        <td colspan="6">No results found.</td>
+      </tr>
+    </ng-template>
+  </table>
+
+  <div class="pagination-controller">
+    <ul class="pagination">
+      <li
+        *ngFor="let page of getPagesArray()"
+        [class.active]="currentPage === page"
+      >
+        <a href="javascript:void(0)" (click)="setCurrentPage(page)">{{
+          page
+        }}</a>
+      </li>
+    </ul>
+  </div>
+</div>

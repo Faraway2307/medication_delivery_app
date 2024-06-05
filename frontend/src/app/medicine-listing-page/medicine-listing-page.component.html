@@ -1,0 +1,28 @@
+<div class="body">
+    <h2>Medicine Listings</h2>
+  
+    <!-- search bar -->
+    <div class="search-container">
+      <input type="text" [(ngModel)]="searchQuery" (input)="search()" placeholder="What medicine are you looking for?">
+    </div>
+  
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4" *ngFor="let product of filteredProducts">
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title">{{ product.medname }}</h5>
+              <p class="card-text">
+                <strong>Price:</strong> {{ product.price | currency }}<br>
+                <strong>Quantity:</strong> {{ product.stock }}
+              </p>
+              <div class="button-container">
+                <!-- <button (click)="createMedicationOrder(product.medcode,product.meddesc)">Place Order</button> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

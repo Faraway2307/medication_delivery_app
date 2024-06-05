@@ -1,0 +1,302 @@
+h4 {
+  color: #9b51e0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+}
+
+.top-section {
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+}
+
+.top-section-left {
+  width: 50%;
+}
+
+.top-section-right {
+  width: 50%;
+}
+
+.top-section-right-left {
+  width: 50%;
+}
+.top-section-right-right {
+  width: 50%;
+}
+
+.card-patient-order {
+  background-color: #edecfc;
+  padding: 48px;
+  border-radius: 24px;
+  display: flex;
+  height: 250px;
+}
+
+.card-patient-order .right-side {
+  display: flex;
+  align-items: center;
+}
+
+.notifiction {
+  background-color: #edecfc;
+  padding: 48px;
+  border-radius: 24px;
+  height: 250px;
+  text-align: left;
+}
+
+.order-requests {
+  padding: 24px;
+  border-radius: 24px;
+  width: 100%;
+  height: 250px;
+  text-align: left;
+}
+
+
+.card-create {
+  background-color: #edecfc;
+  padding: 24px;
+  border-radius: 24px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.card-create img {
+  width: 100px;
+  margin-bottom: 8px;
+}
+.left-side {
+  width: 70%;
+}
+
+.recentOrders-heading {
+  display: flex;
+  justify-content: space-between;
+}
+
+.no-underline {
+  text-decoration: none;
+}
+
+.no-underline:hover {
+  border-bottom: 1px solid purple;
+}
+
+
+
+.recentOrders-heading h4 {
+  color: #9b51e0;
+  padding-top: 7px;
+}
+
+.cartBody {
+  gap: 10px;
+  align-items: center;
+}
+
+.product-cards{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+}
+
+
+.card-list {
+  margin: 20px;
+  background-color: #edecfc;
+  padding: 20px;
+  border-radius: 24px;
+  text-align: left;
+}
+
+.card-header {
+  font-family: "Roboto", sans-serif;
+  color: #6548c3;
+  font-size: 16px;
+}
+
+.card-body {
+  font-family: "Roboto", sans-serif;
+  color: #263238;
+  font-size: 18px;
+}
+
+.inventory-card2 button {
+  background-color: white;
+  color: black;
+  margin-left: 30px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.left-side h2 {
+  width: 200px;
+}
+
+
+.right-side img {
+  width: 200px;
+  margin-top: -20px; 
+}
+
+.bottom-section {
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.inventory-container {
+  width: 50%;
+}
+
+.bottom-section-left {
+  display: flex;
+  gap: 24px;
+}
+
+.bottom-section-left-left {
+  width: 50%;
+}
+
+.bottom-section-left-right {
+  width: 50%;
+}
+
+/* container of paitent records */
+.bottom-section-right {
+  width: 50%;
+}
+
+.pictureHeader{
+  text-align: center;
+  margin-top: 20px;
+}
+.pictureHeader img {
+  width: 50%;
+
+}
+.card-list {
+  margin: 10px;
+}
+
+.notification {
+  background-color: #edecfc;
+  padding: 48px;
+  border-radius: 24px;
+  display: flex;
+  height: 250px;
+}
+
+/* Tablet Styles */
+@media screen and (max-width: 1000px) {
+.top-section {
+  flex-direction: column;
+}
+
+.top-section-left,
+.top-section-right {
+  width: 100%;
+}
+
+.top-section-right-left,
+.top-section-right-right {
+  width: 100%;
+}
+
+.inventory-container {
+  width: 100%;
+  margin-top: 24px;
+}
+
+.bottom-section {
+  flex-direction: column;
+}
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 576px) {
+.top-section-right {
+  flex-direction: column;
+}
+
+.bottom-section {
+  flex-direction: column;
+}
+
+.inventory-container,
+.bottom-section-right {
+  width: 100%;
+}
+
+.bottom-section-left-right {
+  margin-bottom: 24px;
+}
+
+.card-patient-order .left-side {
+  flex: 1;
+}
+
+.card-patient-order .right-side {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.card-patient-order .right-side img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.bottom-section .inventory-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+
+.card-list {
+  min-width: unset;
+  max-width: unset;
+}
+
+.notification {
+  background-color: #edecfc;
+  padding: 48px;
+  border-radius: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 200px;
+}
+
+.notification .left-side {
+  flex: 1;
+}
+
+.notification .right-side {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.notification .right-side img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  margin-bottom: 8px;
+}
+
+
+}
+
+

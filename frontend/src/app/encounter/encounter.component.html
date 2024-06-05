@@ -1,0 +1,191 @@
+<div class="table-container">
+  <h2></h2>
+  <div class="order-row">
+    <div class="search-row">
+      <input
+        id="check"
+        type="text"
+        name="search"
+        class="form-control search-input"
+        placeholder="Search by Order Id, Patient, Order..."
+        [(ngModel)]="searchKeyword"
+        (ngModelChange)="applyFilter()"
+      />
+    </div>
+    <button class="addBtn" (click)="openEncounterDialog()">Add</button>
+  </div>
+  <div class="card-container">
+    <div class="card" *ngFor="let data of (filteredData.length > 0 ? filteredData : inventory)">
+      <div class="card-header">
+        <h3>{{ data.ID }}</h3>
+      </div>
+      <div class="card-content">
+        <!-- Encounter Accordion -->
+        <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Encounter Data
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="accordion-content">
+              <p>Date: {{ data.DATE }}</p>
+              <p>Patient: {{ data.PATIENT }}</p>
+              <p>Description: {{ data.DESCRIPTION }}</p>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+
+        <!-- Order Accordion -->
+        <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Order Data
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+           
+            <div class="accordion-content">
+              <div *ngFor="let order of data.medicationOrders">
+                <p>
+                  <b>Order ID: {{ order.orderID }}</b>
+                </p>
+                <p>Start Date: {{ order.startDate }}</p>
+                <p>
+                  Medication:
+                  <ng-container *ngIf="!isEditMode(order); else editMedication">
+                    {{ order.meddesc }}
+                  </ng-container>
+                  <ng-template #editMedication>
+                    <select [(ngModel)]="order.orderdesc" class="edit-input">
+                      <option value="{{med.medname}}" *ngFor="let med of medications"> {{ med.medname }}</option>
+                    </select>
+                  </ng-template>
+                </p>
+                
+                
+                <p>
+                  Status:
+                  <ng-container *ngIf="!isEditMode(order); else editStatus">
+                    {{ order.status }}
+                  </ng-container>
+                  <ng-template #editStatus>
+                    <select [(ngModel)]="order.status" class="edit-input">
+                      <option value="Pending">Pending</option>
+                      <option value="Rejected">Rejected</option>
+                      <option value="Completed">Completed</option>
+                    </select>
+                  </ng-template>
+                </p>
+                
+                <p>
+                  Reason:
+                  <span *ngIf="!isEditMode(order); else editReason">{{ order.reason }}</span>
+                  <ng-template #editReason>
+                    <input [(ngModel)]="order.reason" class="edit-input">
+                  </ng-template>
+                </p>
+                <img
+                  *ngIf="!isEditMode(order); else saveIcon"
+                  (click)="toggleEditMode(order)"
+                  src="../../assets/images/edit-svgrepo-com.svg"
+                  alt="Edit Icon"
+                  class="edit-icon"
+                >
+                <ng-template #saveIcon>
+                  <img
+                  *ngIf="isEditMode(order)"
+                  (click)="onOrderChange(order)"
+                  src="../../assets/images/save-icon-svgrepo-com.svg"
+                  alt="Save Icon"
+                  class="edit-icon"
+                  >
+                </ng-template>
+                <img
+                  (click)="deleteMedicationOrder(order.orderID)"
+                  src="../../assets/images/delete-svgrepo-com.svg"
+                  alt="Delete Icon"
+                  class="edit-icon"
+                >
+              </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<!--   
+    <table class="table table-responsive table-hover">
+        <thead>
+          <tr class="myHead">
+            <th>Encounter Id </th>
+            <th>Visit Date</th>
+            <th>Visit Reason </th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngIf="isEmpty(); else dofilter">
+          <tr *ngFor="let invent of inventory">
+            <ng-container *ngIf="isEditMode; else viewModeContent1">
+              <td> {{ invent.medcode }}</td>
+              <td> {{ invent.medname }}</td>
+              <textarea [(ngModel)]="invent.meddesc"></textarea>
+            </ng-container>
+            <ng-template #viewModeContent1>
+            <td> {{ invent.medcode }}</td>
+            <td> {{ invent.medname }}</td>
+            <td> {{ invent.meddesc }}</td>
+          </ng-template> -->
+            <!-- <td class = "action">
+              <img (click)="isEditMode ? updateData(invent.meddesc , invent.orderid) : toggleEditMode()" src = "../../assets/images/edit-svgrepo-com.svg">
+              <img (click)="imageClickHandler($event, invent.orderid )" src = "../../assets/images/delete-svgrepo-com.svg">
+          </td> -->
+          <!-- <td class="action">
+            <img
+              *ngIf="!isEditMode; else saveIcon"
+              (click)="toggleEditMode()"
+              src="../../assets/images/edit-svgrepo-com.svg"
+            >
+            <ng-template #saveIcon>
+              <img
+                (click)="toggleEditMode()"
+                src="../../assets/images/save-icon-svgrepo-com.svg"
+              >
+            </ng-template>
+            <img
+              (click)="imageClickHandler($event, invent.orderid)"
+              src="../../assets/images/delete-svgrepo-com.svg"
+            >
+          </td>   
+        </tr>
+      </ng-container>
+      <ng-template #dofilter>
+          <tr *ngFor="let data of filteredData">
+            <ng-container *ngIf="isEditMode; else viewModeContent2">
+              <td> {{ data.medcode }}</td>
+              <td> {{ data.medname }}</td>
+              <textarea [(ngModel)]="data.meddesc"></textarea>
+            </ng-container>
+              <ng-template #viewModeContent2>
+                  <td> {{ data.medcode }}</td>
+                  <td> {{ data.medname }}</td>
+                  <td> {{ data.meddesc }}</td>
+                </ng-template>
+              <td class = "action">
+                <img (click)="isEditMode ? updateData(data.meddesc , data.orderid) : toggleEditMode()" src = "../../assets/images/edit-svgrepo-com.svg">
+                <img (click)="imageClickHandler($event, data.orderid )" src = "../../assets/images/delete-svgrepo-com.svg">
+            </td>
+          </tr>
+        </ng-template>
+        </tbody>
+        <ng-template #noResults>
+          <tr>
+            <td colspan="6">No results found.</td>
+          </tr>
+        </ng-template>
+      </table> -->
+  <!-- </div> -->

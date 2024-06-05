@@ -1,0 +1,67 @@
+<div class="top-section">
+  <div class="top-section-left">
+    <div class="card-patient-order">
+      <div class="left-side">
+        <h2>Total Number Of Medicine</h2>
+        <p>{{ capacity }}</p>
+      </div>
+      <div class="right-side">
+        <img src="../../assets/images/medicines-icon 1.svg" alt="Image" />
+      </div>
+    </div>
+  </div>
+
+  <div class="top-section-right">
+    <div class="card-completed">
+      <div class="left-side">
+        <h2>Medicine Shortage</h2>
+        <p>{{this.shortage}}</p>
+      </div>
+      <div class="right-side">
+        <img src="../../assets/images/warning-svgrepo-com.svg" alt="Image" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="table-container">
+  <div class="order-row">
+    <div class="search-row">
+      <input
+        type="text"
+        name="search"
+        class="form-control search-input"
+        placeholder="Search by Medicine Name"
+        [(ngModel)]="searchQuery"
+      />
+    </div>
+    <button class="addBtn" (click)="openDialog()">Add</button>
+  </div>
+
+  <table class="table table-responsive table-hover">
+    <thead>
+      <tr class="myHead">
+        <th>#</th>
+        <th>Medicine Id</th>
+        <th>Medicine</th>
+        <th>Stock Qty</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let invent of filterInventory(); let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ invent.medcode }}</td>
+        <td>{{ invent.medname }}</td>
+        <td>{{ invent.stock }}</td>
+        <td>
+          <a class="viewBtn" id="viewAllBtn" routerLink="/medicine/{{ invent.medcode }}">View All</a>
+        </td>
+      </tr>
+      <tr *ngIf="filterInventory().length === 0">
+        <td colspan="5">No results found.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

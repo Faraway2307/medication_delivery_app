@@ -1,0 +1,57 @@
+.make-payment-popup {
+    width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+  }
+  
+  .popup-header {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .close-icon {
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th,
+  td {
+    padding: 8px;
+    border: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #EDECFC;
+  }
+  
+  tfoot td {
+    text-align: right;
+    font-weight: bold;
+  }
+  
+  .total-price {
+    margin-top: 20px;
+  }
+  
+  .make-payment-button-container {
+    text-align: right;
+    margin-top: 20px;
+  }
+  
+  .make-payment-button {
+    padding: 8px 16px;
+    background-color:#6548c3 ;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  

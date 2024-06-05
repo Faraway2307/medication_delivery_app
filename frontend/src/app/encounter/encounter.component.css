@@ -1,0 +1,93 @@
+.order-row {
+    display: flex;
+    margin-bottom: 16px;
+    gap: 24px;
+  }
+  
+  .search-row {
+    width: 85%;
+  }
+
+  .addBtn{
+    height: 38px;
+  }
+
+  .action{
+    display: flex;
+    justify-content: flex-start;
+    gap: 8px;
+  }
+
+  .action img {
+    width: 25px;
+  }
+
+  textarea{
+    width: 100%;
+  }
+
+  .card {
+    margin: 20px;
+  }
+
+  .edit-icon {
+    width: 24px;
+    height: 24px;
+  }
+  
+ 
+
+  /* Responsive Layout */
+@media only screen and (max-width: 1000px) {
+  .top-section {
+    margin-top: 24px;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .top-section-left,
+  .top-section-right {
+    width: 100%;
+  }
+
+  .card-patient-order,
+  .card-completed {
+    padding: 24px;
+    height: auto;
+  }
+
+  .left-side h2 {
+    width: 100%;
+  }
+
+  .right-side img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .order-row .search-row,
+  .show-row {
+    width: 100%;
+  }
+
+  .filter-input {
+    width: 100%;
+  }
+
+  th,
+  td {
+    font-size: 14px;
+  }
+
+  th:nth-child(3),
+  td:nth-child(3) {
+    /* Order column */
+    width: 100%;
+  }
+
+  th:not(:nth-child(3)),
+  td:not(:nth-child(3)) {
+    /* All other columns */
+    width: 100%;
+  }
+}

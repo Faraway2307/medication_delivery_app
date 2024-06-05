@@ -1,0 +1,24 @@
+.change-email-popup {
+    width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+  }
+
+  .email-full-width {
+    width: 100%;
+}
+
+#button {
+    background-color: #6548c3;
+    color: white;
+    margin: 10px;
+  }
+
+#submitbtn {
+    background-color: #f2c94c;
+    color: white;
+    float: right;
+    margin: 10px;
+}

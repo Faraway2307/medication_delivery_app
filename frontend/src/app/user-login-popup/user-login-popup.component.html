@@ -1,0 +1,25 @@
+<div class="user-login-popup">
+    <h2 class="popup-header">Login
+      <span class="close-icon" (click)="close()">&times;</span>
+    </h2>
+    <form (ngSubmit)="submitForm(createForm)" #createForm="ngForm">
+      <div class="form-group">
+        <label for="nric">NRIC</label>
+        <input type="text" id="nric" name="nric" [(ngModel)]="nric" required placeholder="SxxxxxxxZ">
+        <div class="error-message" *ngIf="createForm.controls['nric'].errors && createForm.controls['nric'].touched">
+          NRIC cannot be blank
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" [(ngModel)]="password" required>
+        <div class="error-message" *ngIf="createForm.controls['password'].errors && createForm.controls['password'].touched">
+          <ng-container *ngIf="createForm.controls['password'].hasError('required')">Password cannot be blank</ng-container>
+          <ng-container *ngIf="createForm.controls['password'].hasError('invalidPassword')">Invalid password</ng-container>
+        </div>
+      </div>
+      <!-- Change accordingly -->
+      <button type="submit" [disabled]="createForm.invalid">Login</button>
+    </form>
+  </div>
+  

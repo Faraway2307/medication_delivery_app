@@ -1,0 +1,21 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { UserLoginPopupComponent } from './user-login-popup.component';
+
+describe('UserLoginPopupComponent', () => {
+  let component: UserLoginPopupComponent;
+  let fixture: ComponentFixture<UserLoginPopupComponent>;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [UserLoginPopupComponent]
+    });
+    fixture = TestBed.createComponent(UserLoginPopupComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

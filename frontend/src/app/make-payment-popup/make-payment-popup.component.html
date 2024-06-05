@@ -1,0 +1,43 @@
+<div class="make-payment-popup">
+    <h2 class="popup-header">Make Payment
+      <span class="close-icon" (click)="close()">&times;</span>
+    </h2>
+  
+    <table>
+      <thead>
+        <tr>
+          <th>
+            <input type="checkbox" [(ngModel)]="selectAll" (change)="toggleSelectAll()">
+          </th>
+          <th>Order ID</th>
+          <th>Medicine Name</th>
+          <th>Order Date</th>
+          <th>Status</th>
+          <th>Subtotal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of filteredOrders">
+          <td>
+            <input type="checkbox" [(ngModel)]="order.selected" [disabled]="order.status !== 'Approved'" (change)="updateSelectAllState()">
+          </td>
+          <td>{{ order.orderid }}</td>  
+          <td>{{ order.medname }}</td>
+          <td>{{ order.startdate }}</td>
+          <td>{{ order.status }}</td>
+          <td>{{ calculateSubtotal(order) }}</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="5"></td>
+          <td class="total-price">Total Price: {{ calculateTotalPrice() }}</td>
+        </tr>
+      </tfoot>
+    </table>
+  
+    <div class="make-payment-button-container" *ngIf="totalPaymentPrice > 0">
+      <button (click)="makePayment(calculateTotalPrice())">Make Payment</button>
+    </div>    
+  </div>
+  

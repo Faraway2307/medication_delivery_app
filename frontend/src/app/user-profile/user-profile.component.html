@@ -1,0 +1,113 @@
+<div class="whole-body">
+  <div class="top-section">
+    <div class="card mb-4">
+      <div class="card-body text-center">
+        <div></div>
+        <img src="../../assets/images/user_profile.svg" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+        <h3 class="my-3">{{ this.userprofile.full_name }}</h3>
+      </div>
+    </div>
+    <div class="bottom-section">
+      <mat-accordion>
+        <mat-expansion-panel hideToggle>
+          <!-- Personal information panel -->
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Personal Information
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="container py-5">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Full Name</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{ this.userprofile.full_name }}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Mobile</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{ this.userprofile.contact }}
+                    <a (click)="openChangeMobilePopup()">
+                      <img src="../../assets/images/edit-svgrepo-com.svg" alt="Edit Icon" class="edit-icon">
+                    </a>
+                  </p>
+                </div>
+              </div>
+              <hr>
+              <div class="row" *ngIf="this.role == 'User'">
+                <div class="col-sm-3">
+                  <p class="mb-0">Address</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{ this.userprofile.address }}
+                    <a (click)="openChangeAddressPopup()">
+                      <img src="../../assets/images/edit-svgrepo-com.svg" alt="Edit Icon" class="edit-icon">
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+        <!-- Change password panel -->
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Change Password
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <form [formGroup]="form1">
+            <div class="form-group">
+              <label>Old Password</label>
+              <input
+                formControlName="oldPwd"
+                id="oldPwd"
+                type="password" 
+                class="form-control" />
+              <div class="alert alert-danger" *ngIf="oldPwd?.touched && oldPwd?.invalid">
+                <div *ngIf="oldPwd?.errors?.['required']">Old Password is required.</div>
+              </div>
+              <div class="alert alert-danger" *ngIf="oldpwdmatch">Old Password is not correct.</div>
+            </div>
+          
+            <div class="form-group">
+              <label>New Password</label>
+              <input 
+                formControlName="newPwd" 
+                id="newPwd"
+                type="password"  
+                class="form-control" />
+              <div class="alert alert-danger" *ngIf="newPwd?.touched && newPwd?.invalid">
+                <div *ngIf="newPwd?.errors?.['required']">New Password is required.</div>
+                <div *ngIf="newPwd?.errors?.['invalidPassword']">Password must contain a special character, at least 1 uppercase letter, and be at least 8 characters long.</div>
+              </div>
+            </div>
+          
+            <div class="form-group">
+              <label>Confirm Password</label>
+              <input 
+                formControlName="confirmPwd" 
+                id="confirmPwd"
+                type="password"  
+                class="form-control" />
+              <div class="alert alert-danger" *ngIf="confirmPwd?.touched && confirmPwd?.errors?.['required']">
+                Confirm Password is required.
+              </div>
+              <div class="alert alert-danger" *ngIf="confirmPwd?.touched && form1.hasError('pwdsDontMatch')">
+                Passwords do not match.
+              </div>
+            </div>
+            <br>
+            <button class="btn" (click)="openSuccessPwdChangePopup()">Change Password</button>
+          </form>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
+</div>

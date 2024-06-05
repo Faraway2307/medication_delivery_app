@@ -1,0 +1,22 @@
+<div class="create-medicine-popup">
+    <h2 class="popup-header">Add New Medicine
+      <span class="close-icon" (click)="close()">&times;</span>
+    </h2>
+    <div class="search-bar">
+      <input type="text" [(ngModel)]="searchKeyword" (ngModelChange)="applyFilter()" (input)="applyFilter" placeholder="Search...">
+    </div>
+    <div *ngIf="filteredData.length === 0 && searchKeyword !== ''" class="no-results">
+      No results found.
+    </div>
+    <div *ngIf="filteredData.length > 0" class="search-results">
+      <div class="search-result" *ngFor="let result of filteredData">
+        <h5>{{ result.medname }}</h5>
+        <div *ngIf="result.howToUse" class="section">
+          <label>How to Use</label>
+          <div class="content">{{ result.meddesc }}</div>
+        </div>                                                                                                            
+      </div>
+      <button class="add-button" (click)="addMedicine()">Add</button>
+    </div>
+  </div>
+  

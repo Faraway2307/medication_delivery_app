@@ -1,0 +1,61 @@
+<h2>Hello {{userfull_name}}</h2>
+<h4>How are you today?</h4>
+
+<div class="top-section">
+  <div class="top-section-left">
+    <div class="card-patient-order">
+      <div class="left-side">
+        <h2>We Will Deliver Your Medicine</h2>
+        <br>
+        <button routerLink="/medicine-listing-page">Search Medicines</button>
+      </div>
+      <div class="right-side">
+        <img src="../../assets/images/Messenger-pana 1.svg" alt="Image"  />
+      </div>
+    </div>
+  </div>
+
+  <div class="top-section-right">
+    <div class="notification">
+      <div class="left-side">
+        <h2>Your Current No.of Pending Orders :</h2>
+        <h3> {{ pendingquantity }}</h3>
+        <button routerLink="/view-patient-order-status">View All</button>
+      </div>
+      <div class="right-side">
+        <img src="../../assets/images/patient_check.svg" alt="Image" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bottom-section">
+  <div class="inventory-container">
+    <div class="recentOrders-heading">
+        <h2>Your Recent Orders</h2>
+        <a routerLink="/recent-orders" class="no-underline"><h4>View All</h4></a>
+      </div>
+
+
+      <div class="cartBody">
+        <div class="product-cards">
+          <div class="card-list" *ngFor="let product of products | slice:0:4">
+            <div class="card-header">{{ product.medname }}</div>
+            <div class="card-body">
+              <p>Price: ${{ product.price }}</p>
+              <div class="button-container">
+              <button (click)="addtoCart(product.medcode,product.medname, product.encounterid, product.doctorid)">Order again</button>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  <div class="bottom-section-right">
+    <div class="pictureHeader">
+      <img src = "../../assets/images/DroneDelivery.svg">
+    </div>
+  </div>
+</div>

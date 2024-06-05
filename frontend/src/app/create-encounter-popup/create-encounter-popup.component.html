@@ -1,0 +1,35 @@
+<div class="create-medicine-popup">
+  <h2 class="popup-header">Add New Encounter
+    <span class="close-icon" (click)="close()">&times;</span>
+  </h2>
+  <form (ngSubmit)="submitForm()" #createForm="ngForm">
+    <div class="form-group">
+      <label for="encounterDate">Encounter Date</label>
+      <input type="text" id="encounterDate" name="encounterDate" [(ngModel)]="encounterDate" [readonly]="true" required>
+      <div class="error-message" *ngIf="createForm.controls['encounterDate'].touched && createForm.controls['encounterDate'].invalid">
+        Encounter Date cannot be blank
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="visitReason">Reason for visit</label>
+      <textarea id="visitReason" name="visitReason" [(ngModel)]="visitReason" required></textarea>
+      <div class="error-message" *ngIf="createForm.controls['visitReason'].touched && createForm.controls['visitReason'].invalid">
+        Reason for visit cannot be blank
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="medicine">Medicine</label>
+      <div class="custom-select-wrapper">
+        <select id="medicine" name="medicine" [(ngModel)]="selectedMedicine" required>
+          <option value="" disabled selected>Select a medicine</option>
+          <option value="{{med.medcode}},{{med.medname}}" *ngFor="let med of medications"> {{ med.medname }}</option>
+        </select>
+        <div class="custom-select-arrow"></div>
+      </div>
+      <div class="error-message" *ngIf="createForm.controls['medicine'].touched && createForm.controls['medicine'].invalid">
+        Please select a medicine
+      </div>
+    </div>
+    <button type="submit" [disabled]="createForm.invalid" *ngIf="createForm.controls['encounterDate'].valid && createForm.controls['visitReason'].valid && createForm.controls['medicine'].valid">Add New Encounter</button>
+  </form>
+</div>

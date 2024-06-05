@@ -1,0 +1,66 @@
+<div class="table-container">
+  <h2>List of Your Current Orders</h2>
+  <br>
+  <div class="order-row">
+    <!-- search box -->
+    <div class="search-row">
+      <input
+        type="text"
+        name="search"
+        class="form-control search-input"
+        placeholder="Search by Order Id, Order..."
+        [(ngModel)]="searchKeyword"
+        (ngModelChange)="onSearchChange($event)"
+      />
+      <label for="statusFilter">Filter by Status:</label>
+      <select name="statusFilter" id="statusFilter" [(ngModel)]="selectedStatus" (change)="filterByStatus()">
+        <option value="all">All</option>
+        <option value="pending">Pending</option>
+        <option value="approved">Approved</option>
+        <option value="rejected">Rejected</option>
+      </select>
+    </div>
+    <button class="addBtn" (click)="makePayment()">Make Payment</button>
+  </div>
+
+  <table class="table table-responsive table-hover">
+    <thead>
+      <tr class="myHead">
+        <th>Order ID</th>
+        <th>Order</th>
+        <th>Order date</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="filteredData.length > 0; else noResults">
+      <tr *ngFor="let data of filteredData">
+        <td>{{ data.orderid }}</td>
+        <td>{{ data.medname  }}</td>
+        <td>{{ data.startdate }}</td>
+        
+        <td>
+          <div
+            class="status-box"
+            [ngClass]="{
+              completed: data.status.toLowerCase() === 'completed',
+              approved: data.status.toLowerCase() === 'approved',
+              pending: data.status.toLowerCase() === 'pending',
+              rejected: data.status.toLowerCase() === 'rejected'
+            }"
+          >
+            <span class="status-text">{{ data.status }}</span>  
+          </div>
+        </td>
+        <!-- "View All" Link/Button -->
+        <td>        
+          <a class="viewBtn" #viewAllBtn id="{{ data.orderid }}" (click)="openDialog(viewAllBtn)">View All</a>         </td>
+      </tr>
+    </tbody>
+    <ng-template #noResults>
+      <tr>
+        <td colspan="5">No results found.</td>
+      </tr>
+    </ng-template>
+  </table>
+</div>

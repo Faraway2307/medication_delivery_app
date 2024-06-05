@@ -1,0 +1,21 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "c:\\Users\\Admin\\Downloads\\google-auth-library-oauth2-http-1.16.1.jar",
+        "c:\\Users\\Admin\\Downloads\\google-oauth-client-1.34.1.jar",
+        "c:\\Users\\Admin\\Downloads\\postgresql-42.6.0.jar",
+        "c:\\Users\\Admin\\Downloads\\api-common-2.11.0.jar",
+        "c:\\Users\\Admin\\Downloads\\google-cloud-core-2.18.0.jar",
+        "c:\\Users\\Admin\\Downloads\\google-cloud-firestore-3.10.0.jar",
+        "c:\\Users\\Admin\\Downloads\\jakarta.annotation-api-2.1.1.jar",
+        "c:\\Users\\Admin\\Downloads\\firebase-admin-9.1.1.jar",
+        "c:\\Users\\Admin\\Downloads\\spring-boot-3.1.0.jar",
+        "c:\\Users\\Admin\\Downloads\\spring-boot-autoconfigure-3.1.0.jar",
+        "c:\\Users\\Admin\\Downloads\\spring-context-3.1.0.RELEASE.jar",
+        "c:\\Users\\Admin\\Downloads\\spring-beans-3.1.0.RELEASE.jar",
+        "c:\\Users\\Admin\\Downloads\\spring-core-3.1.0.RELEASE.jar",
+        "c:\\Users\\Admin\\Downloads\\jackson-databind-2.13.5.jar",
+        "c:\\Users\\Admin\\Downloads\\jackson-core-2.13.5.jar",
+        "c:\\Users\\Muhammad Iskandar\\Downloads\\postgresql-42.6.0.jar"
+    ]
+}

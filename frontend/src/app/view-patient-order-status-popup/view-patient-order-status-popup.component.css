@@ -1,0 +1,29 @@
+.view-patient-order-status-popup {
+    width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+  }
+
+  .popup-header {
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  .close-icon {
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  button {
+  display: block;
+  padding: 10px;
+  margin: 16px;
+  float: right;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}

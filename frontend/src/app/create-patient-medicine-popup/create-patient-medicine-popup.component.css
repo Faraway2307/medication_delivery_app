@@ -1,0 +1,70 @@
+.create-medicine-popup {
+    width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+  }
+  
+  .popup-header {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .close-icon {
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  input[type="text"] {
+    flex: 1;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .search-results {
+    margin-top: 20px;
+  }
+  
+  .section {
+    margin-bottom: 10px;
+  }
+  
+  .section label {
+    color: #9B51E0;
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .section .content {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .add-button {
+    margin: 20px 0px;
+    padding: 10px 20px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    float: right;
+  }
+  
+  .add-button:hover {
+    background-color: #7C6FD5;
+  }
+  
+  .no-results {
+    color: #ff0000;
+  }

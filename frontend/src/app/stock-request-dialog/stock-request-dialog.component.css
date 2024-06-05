@@ -1,0 +1,62 @@
+.stock-request-dialog {
+  width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.popup-header {
+  font-size: 20px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.close-icon {
+  float: right;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+label {
+  
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="number"] {
+  width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+  padding: 10px;
+  margin-top: 16px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  align-self: flex-end;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.error-message {
+  color: #ff0000;
+  font-size: 12px;
+  margin-top: 5px;
+}
+

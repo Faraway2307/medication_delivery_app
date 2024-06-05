@@ -1,0 +1,92 @@
+<h2>Hello {{userfull_name}}</h2>
+<h4>How are you today?</h4>
+
+<div class="top-section">
+  <div class="top-section-left">
+    <div class="card-patient-order">
+      <div class="left-side">
+        <h2>Patient's Order Request</h2>
+        <p> {{ordernum}} </p>
+        <button routerLink="/view-order-request">View All</button>
+      </div>
+      <div class="right-side">
+        <img src="../../assets/images/PatientOrderRequest.svg" alt="Image" />
+      </div>
+    </div>
+  </div>
+
+  <div class="top-section-right">
+    <div class="top-section-right-left">
+      <div class="card-total-paitients">
+        <h2> {{this.tableData.length}}</h2>
+        <p>Total Number of Patients</p>
+      </div>
+    </div>
+
+    <div class="top-section-right-right">
+      <div class="card-create">
+        <img src="../../assets/images/add-friend.png" />
+        <button (click)="openDialog()">Create</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bottom-section">
+  <div class="inventory-container">
+    <h2>Inventory</h2>
+    <div class="bottom-section-left">
+      <div class="bottom-section-left-left">
+        <div class="card-total-medicine">
+          <h2> {{ medicine }}</h2>
+          <p>Total number of Medicines</p>
+          <h4 routerLink="/inventory">View all</h4>
+        </div>
+      </div>
+
+      <div class="bottom-section-left-right">
+        <div class="card-medicine-shortage">
+          <img src="../../assets/images/warning-svgrepo-com.svg" />
+          <h2> {{ shortage }}</h2>
+          <p>Medicine Shortage</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="bottom-section-right">
+    <div class="paitient-records-header">
+      <h2>patient's Record</h2>
+      <!-- <h4>View All</h4> -->
+    </div>
+    <div class="patient-record-content">
+      <div class="search">
+        <input
+          type="text"
+          class="searchTerm"
+          placeholder="Who are you looking for?"
+          [(ngModel)]="searchKeyword"
+          (ngModelChange)="applyFilter()"
+        />
+
+        <button type="submit" class="searchButton">
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
+      <div class="card-container">
+        <div
+          *ngIf="searchKeyword !== '' && filteredData.length === 0"
+          class="no-results"
+        >
+          No results found
+        </div>
+
+        <div class="patient-card" *ngFor="let data of filteredData">
+          <p>{{ data.full_name }}</p>
+          <!-- <button routerLink="/patient-record/{{ data.pid }}">View</button> -->
+          <button routerLink="/encounter/{{ data.pid }}">View</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

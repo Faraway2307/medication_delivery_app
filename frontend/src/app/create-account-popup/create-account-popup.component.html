@@ -1,0 +1,50 @@
+<div class="create-account-popup">
+  <h2 class="popup-header">Create New Profile
+    <span class="close-icon" (click)="close()">&times;</span>
+  </h2>
+  <form (ngSubmit)="submitForm(createForm)" #createForm="ngForm">
+    <div class="form-group">
+      <label for="fullName">Full Name</label>
+      <input type="text" id="fullName" name="fullName" [(ngModel)]="fullName" required>
+      <div class="error-message" *ngIf="createForm.controls['fullName'].errors && createForm.controls['fullName'].touched">
+        Full Name cannot be blank
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="nric">NRIC</label>
+      <input type="text" id="nric" name="nric" [(ngModel)]="nric" required>
+      <div class="error-message" *ngIf="createForm.controls['nric'].errors && createForm.controls['nric'].touched">
+        NRIC cannot be blank
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" [(ngModel)]="password" required>
+      <div class="error-message" *ngIf="createForm.controls['password'].errors && createForm.controls['password'].touched">
+        Password cannot be blank
+      </div>
+      <div class="error-message" *ngIf="createForm.controls['password'].value && !isPasswordValid(createForm.controls['password'].value)">
+        Password must contain at least 1 special character, 1 uppercase letter, and be at least 8 characters long.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="birthdate">Birth Date</label>
+      <input type="date" id="birthdate" name="birthdate" pattern="\d{4}-\d{2}-\d{2}" [(ngModel)]="birthdate" required>
+      <div class="error-message" *ngIf="createForm.controls['birthdate'].errors && createForm.controls['birthdate'].touched">
+        Birthdate cannot be blank
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="userRole">User Role</label>
+      <select id="userRole" name="userRole" [(ngModel)]="userRole" required>
+        <option value="">Select Role</option>
+        <option value="Patient">Patient</option>
+        <option value="Admin">Admin</option>
+      </select>
+      <div class="error-message" *ngIf="createForm.controls['userRole'].errors && createForm.controls['userRole'].touched">
+        User Role cannot be blank
+      </div>
+    </div>
+    <button type="submit" [disabled]="createForm.invalid">Create</button>
+  </form>
+</div>

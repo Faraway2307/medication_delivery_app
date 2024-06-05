@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <nav>
+        <div class="logo">CareAtHomeMeds</div>
+        <input type="checkbox" id="checkbox">
+        <label for="checkbox" id="icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </label>
+        <ul>
+            <li *ngIf="!isPatient && !isAdmin"><a routerLink="/home">Home</a></li>
+    
+            <!-- Temp Admin Routings , TODO : do control user accuess ... using NgIf  -->
+            
+            <li *ngIf="isAdmin"><a routerLink="/admin-home">Admin Dashboard View</a></li>
+    
+            <!-- Temp Admin Routings , TODO : do control user accuess ... using NgIf  -->
+            <li *ngIf="isPatient"><a routerLink="/user-home">User home</a></li>
+    
+            <!-- Temp Admin Routings , TODO : do control user accuess ... using NgIf  -->
+      
+            <!-- Icon User with Dropdown -->
+            <li *ngIf="isPatient || isAdmin" class="nav-item">
+                <a class="nav-link">
+                <i class="fas fa-user"></i>
+                </a>
+                <ul>
+                <!-- Add dropdown items here -->
+                <li><a routerLink="/user-profile">Profile</a></li>
+                <li><a (click)="logout()" routerLink="/home">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+  </nav>
+</body>
+
+</html>
