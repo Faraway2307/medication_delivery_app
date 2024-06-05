@@ -79,3 +79,10 @@ The MongoDB connection will be running on http://localhost:8000/
 After running front end and backend
 1. Upon arrival at the website http://localhost:4200/ you will be at the login page . Navigate to users table in pgAdmin4, right click it and select "View/Edit Data" and then "All Rows". Select whichever account you want to login with the NRIC. Since the password is salt and hashed the default password for every account is P@ssword. Take note this is for testing purposes only and in reality each account password serves differently.
 
+Some images of how the website looks like:
+
+![Picture1](https://github.com/Faraway2307/medication_delivery_app/assets/115647625/4384624b-71ec-4bae-8e9a-739e2c4d6809)
+
+![Picture4](https://github.com/Faraway2307/medication_delivery_app/assets/115647625/a8a71a78-8124-49b5-b34a-fe1071ab3e14)
+
+![Picture5](https://github.com/Faraway2307/medication_delivery_app/assets/115647625/27e11092-43c8-4d9f-829c-06dcdb49a900)
